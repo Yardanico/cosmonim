@@ -30,6 +30,9 @@ nim c -d:danger --opt:size -o:hello.elf hello.nim
 objcopy -SO binary hello.elf hello.com
 ```
 
+You might also use `--gc:arc` or `--gc:orc` in conjuction with `-d:useMalloc` to create a smaller and potentially faster
+binary (either add it to the compilation command-line or to the nim.cfg)
+
 If you import some other stdlib modules and the compilation fails, first check if the C compiler is complaining about missing
 headers - if so, just add that header into the `stubs` directory (just create an empty file with the right directory hierarchy),
 and it'll probably work :P
