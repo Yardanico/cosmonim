@@ -10,10 +10,12 @@ in a single include file.
 - `nim.cfg` - Neccessary configuration file to set all the C compiler options to the ones required by Cosmopolitan.
 
 First you need to get the Cosmopolitan itself - simply go to [the downloads](https://justine.lol/cosmopolitan/download.html) and 
-grab the latest release (0.2 as of 03-03-2021). Then extract it into the `cosmopolitan` folder so that it looks something like this:
+grab the latest release (2.0.1 as of 31-08-2022). Then extract it into the `cosmopolitan` folder so that it looks something like this:
 ```
-cosmopolitan/
+cosmopolitan
+├── ape-copy-self.o
 ├── ape.lds
+├── ape-no-modify-self.o
 ├── ape.o
 ├── cosmopolitan.a
 ├── cosmopolitan.h
@@ -23,7 +25,7 @@ cosmopolitan/
 
 Now you can actually compile the first example with:
 ```
-# Compile an ELF binary
+# Compile the ELF binary
 nim c -d:danger --opt:size -o:hello.elf hello.nim
 
 # Get the actual portable executable
@@ -37,11 +39,11 @@ If you import some other stdlib modules and the compilation fails, first check i
 headers - if so, just add that header into the `stubs` directory (just create an empty file with the right directory hierarchy),
 and it'll probably work :P
 
-Apart from `hello.nim`, this repo also has `gethttp.nim` and `asyncserv.nim`. To compile them you need to apply the `asyncserv.diff` patch
-to your local Nim installation. This is also pretty simple:
+Apart from `hello.nim`, this repo also has `gethttp.nim` (test of using the Nim http client) and `asyncserv.nim` (test of using the Nim async HTTP server). 
+To compile `asyncserv.nim` you also need to apply the `asyncserv.diff` patch to your local Nim installation. This is also pretty simple:
 ```
 cd nimGitDir
 git apply /path/to/cosmonim/asyncserv.diff 
 ```
 
-Then you can compile those examples as usual.
+Then you can compile it as usual.
