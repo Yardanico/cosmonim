@@ -1,9 +1,11 @@
 # Cosmopolitan Libc for Nim
 
 This is a simple example to show how can you use [Cosmopolitan](https://github.com/jart/cosmopolitan) with Nim.
+
+**Clone with `git clone --recursive https://github.com/Yardanico/cosmonim`**
+
 Directory structure:
-- `stubs` - contains empty include files that Nim expects to be available. Cosmopolitan provides all of these 
-in a single include file.
+- `stubs` - a Git submodule pointing to https://github.com/fabriziobertocci/cosmo-include which has a lot of empty headers that make Nim happy because otherwise it won't find the needed headers. 
 
 - `hello.nim` - Nim file that we want to compile
 
