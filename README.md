@@ -5,11 +5,11 @@ This is a simple example to show how can you use [Cosmopolitan](https://github.c
 **Clone with `git clone --recursive https://github.com/Yardanico/cosmonim`**
 
 Directory structure:
-- `stubs` - a Git submodule pointing to https://github.com/fabriziobertocci/cosmo-include which has a lot of empty headers that make Nim happy because otherwise it won't find the needed headers. 
+- `stubs` - a Git submodule pointing to a repository which has a lot of empty headers that make Nim happy because otherwise it won't find the needed headers. 
 
 - `hello.nim` - Nim file that we want to compile
 
-- `nim.cfg` - Neccessary configuration file to set all the C compiler options to the ones required by Cosmopolitan.
+- `nim.cfg` - Neccessary configuration file to set all the C compiler options to the ones required by Cosmopolitan (and also some Nim-specific ones that are just a better default choice).
 
 First you need to get the Cosmopolitan itself - simply go to [the downloads](https://justine.lol/cosmopolitan/download.html) and 
 grab the latest release (2.2 as of 2023-03-24). Then extract it into the `cosmopolitan` folder so that it looks something like this:
