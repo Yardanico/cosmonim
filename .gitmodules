@@ -1,3 +1,4 @@
 [submodule "stubs"]
 	path = stubs
-	url = https://github.com/fabriziobertocci/cosmo-include
+	url = https://github.com/Yardanico/cosmo-include
+	branch = add-signalfd
