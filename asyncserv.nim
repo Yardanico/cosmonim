@@ -1,4 +1,13 @@
 import std/[asyncdispatch, asynchttpserver]
+
+# posix has too many symbols that'll lead to a lot of annoying conflicts, so
+# just import what we need
+from std/posix import In6Addr, htonl
+# it's in std/posix defined with -d:lwip, but lwip also activates other stuff so we just copy the implementation
+proc IN6_IS_ADDR_V4MAPPED*(ipv6_address: ptr In6Addr): cint {.exportc.} =
+  var bits32: ptr array[4, uint32] = cast[ptr array[4, uint32]](ipv6_address)
+  return (bits32[1] == 0'u32 and bits32[2] == htonl(0x0000FFFF)).cint
+
 proc main {.async.} =
   const port = 8080
   var server = newAsyncHttpServer()
